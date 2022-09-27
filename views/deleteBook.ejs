@@ -1,0 +1,10 @@
+<%- include('partials/header'); -%>
+
+<h3 class="mt-3">Delete a book which you listed</h3>
+<form action="/deleteBook" method = "post" class="mt-3">
+    <label for="bookId"> <strong> Enter book id:</strong></label>
+    <input type="text" class="form-control" id="bookId" name="bookId"><br>
+    <button type="submit" class="btn btn-dark">Delete</button>
+</form>
+
+<%- include('partials/footer'); -%>

@@ -1,0 +1,41 @@
+<%- include('partials/header'); -%>
+
+<h2 class="mt-5">Submit application for book <%=book.bookName%></h2>
+<div class="p-3 bg-light">
+
+    <form action="/rentBook/<%=book._id%>" method="post">
+        <div class="form-group mt-3">
+            <label for="rname"><strong>Your Name</strong> </label>
+            <input type="text" class="form-control" id="rname" name="rname">
+        </div>
+    
+        <div class="form-group mt-3">
+            <label for="rclass"><strong>Class</strong> </label>
+            <input type="text" class="form-control" id="rclass" name="rclass">
+        </div>
+    
+        <div class="form-group mt-3">
+            <label for="rcity"><strong>City</strong> </label>
+            <input type="text" class="form-control" id="rcity" name="rcity">
+        </div>
+    
+        <div class="form-group mt-3">
+            <label for="rphone"><strong>Phone No</strong> </label>
+            <input type="text" class="form-control" id="rphone" name="rphone">
+        </div>
+    
+        <div class="form-group mt-3">
+            <label for="remail"><strong>Email id</strong> </label>
+            <input type="text" class="form-control" id="remail" name="remail">
+        </div>
+    
+        <button type="submit" class="btn btn-dark mt-3 ">Submit</button>
+    
+
+    </form>
+    
+</div>
+
+
+
+<%- include('partials/footer'); -%>
