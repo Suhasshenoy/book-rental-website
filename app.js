@@ -12,7 +12,7 @@ const path =require('path');
 const cloudinary  = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const { log } = require('console');
-require('dotenv').config();
+
 
 
 
@@ -189,8 +189,13 @@ app.post("/deleteBook",(req,res)=>{
     
  
 })
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 
-app.listen((process.env.PORT||3000), function () {
+
+app.listen((port), function () {
     console.log("Server started on port 3000");
   });
