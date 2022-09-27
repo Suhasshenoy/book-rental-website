@@ -16,18 +16,18 @@ const { log } = require('console');
 require('dotenv').config();
 
 
-cloudinary.config({ 
-    cloud_name: "dko5ee27q", 
-    api_key: '356363399211357', 
-    api_secret: 'KG3e-DekmxFFxUG22EJHapdWNcY'
-});
-const storage = new CloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: "demo",
-    allowedFormats: ["jpg", "png"],
-    transformation: [{ width: 30, height: 30, crop: "limit" }]
-});
-const parser = multer({ storage: storage });
+// cloudinary.config({ 
+//     cloud_name: "dko5ee27q", 
+//     api_key: '356363399211357', 
+//     api_secret: 'KG3e-DekmxFFxUG22EJHapdWNcY'
+// });
+// const storage = new CloudinaryStorage({
+//     cloudinary: cloudinary,
+//     folder: "demo",
+//     allowedFormats: ["jpg", "png"],
+//     transformation: [{ width: 30, height: 30, crop: "limit" }]
+// });
+// const parser = multer({ storage: storage });
 
 let transport = nodemailer.createTransport({
     service:'gmail',
@@ -63,15 +63,15 @@ app.get("/",(req,res)=>{
 app.get("/lendBook",(req,res)=>{
     res.render("lendBook");
 });
-
-app.post("/lendBook",parser.single('image'),(req,res)=>{
+// parser.single('image'),
+app.post("/lendBook",(req,res)=>{
     const book = new Book({
         bookName :req.body.bookName,
         class: req.body.class,
         Subject:req.body.subject,
         ownerName:req.body.luserName,
         contactInfo: req.body.lemail,
-        bookImage:req.file.path
+        // bookImage:req.file.path
     })
     book.save((err,post,numAffected)=>{
         if(err){
