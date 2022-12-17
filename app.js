@@ -18,8 +18,8 @@ require('dotenv').config();
 
 cloudinary.config({ 
     cloud_name: "dko5ee27q", 
-    api_key: '356363399211357', 
-    api_secret: 'KG3e-DekmxFFxUG22EJHapdWNcY'
+    api_key: process.env.CLOUDINARY_API_KEY, 
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
@@ -32,12 +32,12 @@ const parser = multer({ storage: storage });
 let transport = nodemailer.createTransport({
     service:'gmail',
     auth:{
-        user: "bookrentaldtl@gmail.com",
-        pass: "mqysmvewfgnfrocc"
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 
 });
-mongoose.connect("mongodb+srv://admin_suhas:todolist@cluster0.23we0r6.mongodb.net/Book_Rental?retryWrites=true");
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.23we0r6.mongodb.net/Book_Rental?retryWrites=true`);
 const bookSchema = {
     bookName: String,
     class: String,
